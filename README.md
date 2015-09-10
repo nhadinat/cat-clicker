@@ -1,6 +1,6 @@
-## Minicourse Ajax Project
+## Cat Clicker
 
-I'm practicing Ajax
+I'm practicing Javascript Patterns with a Cat Clicker app
 
 ### How to Run
 
