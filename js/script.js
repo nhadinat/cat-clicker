@@ -3,8 +3,6 @@
 // - a picture of the cat
 // - text showing the number of clicks
 
-//before you make the factory, find the pattern
-
 // Cat Class
 var Cat = function (stringName, stringUrl){
   this.name = stringName;
@@ -49,19 +47,3 @@ buttons.catBox();
 buttons.clicker();
 chewie.catBox();
 chewie.clicker();
-
-/*
- * The PicCounter Class
- */
- /*
-
-var PicCounter = function(name, src);
-  this.count = 0;
-  this.id = "$('#" + this + "')";
-  this.counter =
-PicCounter.prototype.clicker = this.click(function(e) {
-  this.count++;
-  $counter.text(count);
-});
-
-*/
