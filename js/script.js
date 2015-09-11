@@ -34,16 +34,61 @@ Cat.prototype.clicker = function () {
 
   // Listen for clicks and increase count
   $(hitId).click(function (e) {
+    console.log(e.target.id);
     buttons.count++;
     $(hitCountId).text(buttons.count);
   });
 };
 
 // Create Cats
-var buttons = new Cat('Buttons', 'https://c2.staticflickr.com/2/1126/625069434_db86b67df8_z.jpg');
-var chewie = new Cat('Chewie', 'https://c1.staticflickr.com/3/2298/2290467335_89067c7b51_z.jpg');
+var buttons = new Cat('Buttons', 'https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426');
+var chewie = new Cat('Chewie', 'https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496');
 
 buttons.catBox();
 buttons.clicker();
 chewie.catBox();
 chewie.clicker();
+
+
+//////////////////
+/*
+var nums = [1,2,3];
+
+// Let's loop over the numbers in our array
+for (var i = 0; i < nums.length; i++) {
+
+    // This is the number we're on...
+    var num = nums[i];
+
+    // We're creating a DOM element for the number
+    var elem = document.createElement('div');
+    elem.textContent = num;
+
+    // ... and when we click, alert the value of `num`
+    elem.addEventListener('click', (function(numCopy) {
+        return function() {
+            alert(numCopy);
+        };
+    })(num));
+
+    document.body.appendChild(elem);
+};
+
+
+
+
+
+
+
+
+
+  // Listen for clicks and increase count
+  $(hitId).click(function (e) {
+    console.log(e.target.id);
+    var name = e.target.id.slice(0,1).toLowerCase() +
+      e.target.id.slice(1);
+      console.log(name);
+    name.count++;
+    $(hitCountId).text(name.count);
+  });
+*/
