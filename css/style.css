@@ -1,12 +1,11 @@
 .catpic {
-  width: 300px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 .catbox {
   background-color: #f4f4f4;
-  height: 400px;
-  width: 300px;
+  width: 25%;
   float: left;
   margin: 20px;
   text-align: center;

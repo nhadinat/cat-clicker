@@ -50,35 +50,29 @@ chewie.catBox();
 chewie.clicker();
 
 
-//////////////////
 /*
-var nums = [1,2,3];
+//////////////////
+var cats = [1,2,3];
 
 // Let's loop over the numbers in our array
-for (var i = 0; i < nums.length; i++) {
+for (var i = 0; i < cats.length; i++) {
 
     // This is the number we're on...
-    var num = nums[i];
+    var cat = cats[i];
 
     // We're creating a DOM element for the number
     var elem = document.createElement('div');
-    elem.textContent = num;
+    elem.textContent = cat;
 
     // ... and when we click, alert the value of `num`
-    elem.addEventListener('click', (function(numCopy) {
+    elem.addEventListener('click', (function(catCopy) {
         return function() {
-            alert(numCopy);
+            alert(catCopy);
         };
-    })(num));
+    })(cat));
 
     document.body.appendChild(elem);
 };
-
-
-
-
-
-
 
 
 
