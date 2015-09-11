@@ -1,9 +1,12 @@
-.catpic {
+.isHidden {
+  display: none;
+}
+.catPic {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
-.catbox {
+.catBox {
   background-color: #f4f4f4;
   height: 400px;
   width: 300px;

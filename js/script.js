@@ -49,21 +49,23 @@ for (var i = 0; i < cats.length; i++) {
     // We're creating a DOM element for the number
     elem = document.createElement('div');
       elem.id = cat.name;
-      elem.className = 'catbox';
+      elem.className = 'catBox';
     header = document.createElement('h1');
       header.textContent = cat.name;
-    img = document.createElement('img');
-      img.src = cat.src;
-      img.id = cat.imgId;
-      img.className = 'catpic';
     counter = document.createElement('p');
       counter.textContent = cat.count;
       counter.id = cat.countId;
+    img = document.createElement('img');
+      img.src = cat.src;
+      img.id = cat.imgId;
+      img.className = 'catPic';
 
     // When we click header, unhide cat
     header.addEventListener('click', (function(catCopy) {
         return function() {
           console.log(catCopy);
+          document.getElementById(catCopy.countId).classList.toggle('isHidden');
+          document.getElementById(catCopy.imgId).classList.toggle('isHidden');
         };
     })(cat));
 
@@ -79,6 +81,6 @@ for (var i = 0; i < cats.length; i++) {
     // Append all the cats
     document.getElementById('container').appendChild(elem);
     document.getElementById(cat.name).appendChild(header);
-    document.getElementById(cat.name).appendChild(counter);
-    document.getElementById(cat.name).appendChild(img);
+    document.getElementById('litterBox').appendChild(counter).classList.add('isHidden');
+    document.getElementById('litterBox').appendChild(img).classList.add('isHidden');
 }
