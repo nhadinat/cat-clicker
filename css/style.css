@@ -1,10 +1,24 @@
+body {
+  background-color: #00aeef;
+  margin: 0;
+}
 ul {
   text-align: center;
 }
 li {
+  font-weight: bold;
+  color: #eff0f1;
   padding: 0 20px 0 20px;
   display: inline-block;
   text-decoration: none;
+}
+li:hover {
+  color: #00aeef;
+  cursor: pointer;
+}
+.selection-list {
+  width: 100%;
+  background-color: #0078a6;
 }
 .isHidden {
   display: none;
@@ -15,7 +29,7 @@ li {
   margin-right: auto;
 }
 .catBox {
-  background-color: #f4f4f4;
+  background-color: #eff0f1;
   height: 400px;
   width: 300px;
   float: left;

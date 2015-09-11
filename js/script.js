@@ -23,10 +23,11 @@
 // Cat Class
 var Cat = function (stringName, stringUrl){
   this.name = stringName;
-  this.imgId = stringName + 'Img';
+  this.headerId = stringName + 'Header';
   this.countId = stringName + 'Counter';
-  this.src = stringUrl;
   this.count = 0;
+  this.imgId = stringName + 'Img';
+  this.src = stringUrl;
 };
 
 var cats = [1,2,3,4,5];
@@ -53,6 +54,7 @@ for (var i = 0; i < cats.length; i++) {
     list = document.createElement('li');
       list.textContent = cat.name;
     header = document.createElement('h1');
+      header.id = cat.headerId;
       header.textContent = cat.name;
     counter = document.createElement('p');
       counter.textContent = cat.count;
@@ -63,9 +65,11 @@ for (var i = 0; i < cats.length; i++) {
       img.className = 'catPic';
 
     // When we click header, unhide cat
-    header.addEventListener('click', (function(catCopy) {
+    list.addEventListener('click', (function(catCopy) {
         return function() {
           console.log(catCopy);
+          document.getElementById(catCopy.name).classList.toggle('isHidden');
+          document.getElementById(catCopy.headerId).classList.toggle('isHidden');
           document.getElementById(catCopy.countId).classList.toggle('isHidden');
           document.getElementById(catCopy.imgId).classList.toggle('isHidden');
         };
@@ -82,8 +86,8 @@ for (var i = 0; i < cats.length; i++) {
 
     // Append all the cats
     document.getElementById('list').appendChild(list);
-    document.getElementById('litterBox').appendChild(elem);
-    document.getElementById(cat.name).appendChild(header);
+    document.getElementById('litterBox').appendChild(elem).classList.add('isHidden');
+    document.getElementById(cat.name).appendChild(header).classList.add('isHidden');
     document.getElementById(cat.name).appendChild(counter).classList.add('isHidden');
     document.getElementById(cat.name).appendChild(img).classList.add('isHidden');
 }
