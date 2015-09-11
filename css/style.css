@@ -1,6 +1,3 @@
-* {box-sizing:border-box;}
-body {background-color: #CCC;}
-
-.container {
-    padding: 10px;
+.catpic {
+  width: 150px;
 }
