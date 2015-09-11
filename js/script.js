@@ -4,32 +4,16 @@
 // - text showing the number of clicks
 
 //before you make the factory, find the pattern
-/*
+
 // Cat Class
-var Cat = function (name, url){
-  this.name = name;
-  this.countId = name + 'Counter';
-  this.src = url;
-  count = 0;
-};
-*/
-
-// Create Cat: Buttons
-var buttons = {
-  name: 'Buttons',
-  countId: 'buttonsCounter',
-  src: 'https://c2.staticflickr.com/2/1126/625069434_db86b67df8_z.jpg',
-  count: 0
+var Cat = function (stringName, stringUrl){
+  this.name = stringName;
+  this.countId = stringName + 'Counter';
+  this.src = stringUrl;
+  this.count = 0;
 };
 
-var chewie = {
-  name: 'Chewie',
-  countId: 'chewieCounter',
-  src: 'https://c1.staticflickr.com/3/2298/2290467335_89067c7b51_z.jpg',
-  count: 0
-};
-
-buttons.catBox = function () {
+Cat.prototype.catBox = function () {
   // Gather definitions
   var catName = this.name;
   var catCountId = this.countId;
@@ -46,7 +30,7 @@ buttons.catBox = function () {
 };
 
 // Clicker Function
-buttons.clicker = function () {
+Cat.prototype.clicker = function () {
   var hitId = '#' + this.name;
   var hitCountId = '#' + this.countId;
 
@@ -57,10 +41,14 @@ buttons.clicker = function () {
   });
 };
 
+// Create Cats
+var buttons = new Cat('Buttons', 'https://c2.staticflickr.com/2/1126/625069434_db86b67df8_z.jpg');
+var chewie = new Cat('Chewie', 'https://c1.staticflickr.com/3/2298/2290467335_89067c7b51_z.jpg');
+
 buttons.catBox();
 buttons.clicker();
-//chewie.catBox();
-//chewie.clicker();
+chewie.catBox();
+chewie.clicker();
 
 /*
  * The PicCounter Class
