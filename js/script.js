@@ -18,9 +18,7 @@
 // The number of clicks in the cat area should be unique to each
 // cat, and should increment when the cat's picture is clicked.
 
-//////////////////
-// first display all cats with their individual clicker counts
-// then hide all, display when header name clicked.
+// Develop cats with their individual clicker counts
 
 // Cat Class
 var Cat = function (stringName, stringUrl){
@@ -40,29 +38,36 @@ var cats = [1,2,3,4,5];
   cats[4] = new Cat('Tootsie', 'http://vignette3.wikia.nocookie.net/warriorsfanfic/images/f/f1/BrownCat1.jpg/revision/latest?cb=20140613110216');
 
 // Declare for loop vars
-// var cat, elem, header, img, counter;
+var cat, elem, header, img, counter;
 
 // Loop over the numbers in cats array
 for (var i = 0; i < cats.length; i++) {
 
     // This is the number we're on...
-    var cat = cats[i];
+    cat = cats[i];
 
     // We're creating a DOM element for the number
-    var elem = document.createElement('div');
+    elem = document.createElement('div');
       elem.id = cat.name;
       elem.className = 'catbox';
-    var header = document.createElement('h1');
+    header = document.createElement('h1');
       header.textContent = cat.name;
-    var img = document.createElement('img');
+    img = document.createElement('img');
       img.src = cat.src;
       img.id = cat.imgId;
       img.className = 'catpic';
-    var counter = document.createElement('p');
+    counter = document.createElement('p');
       counter.textContent = cat.count;
       counter.id = cat.countId;
 
-    // ... and when we click, add to count for this cat
+    // When we click header, unhide cat
+    header.addEventListener('click', (function(catCopy) {
+        return function() {
+          console.log(catCopy);
+        };
+    })(cat));
+
+    // ... and when we click img, add to count for this cat
     img.addEventListener('click', (function(catCopy) {
         return function() {
             catCopy.count++;
@@ -71,57 +76,9 @@ for (var i = 0; i < cats.length; i++) {
         };
     })(cat));
 
+    // Append all the cats
     document.getElementById('container').appendChild(elem);
     document.getElementById(cat.name).appendChild(header);
     document.getElementById(cat.name).appendChild(counter);
     document.getElementById(cat.name).appendChild(img);
 }
-
-/*
-      // Compile HTML
-      var catContainer =
-        '<div class="catbox"><h1>' + cat.name + '</h1>' +
-        '<img id="' + cat.name + '" class="catpic"' +
-        'src="' + cat.src + '">' +
-        '<p id="' + cat.countId + '"></p></div>';
-      // Append HTML
-      $('#container').append(catContainer);
-
-// Clicker Function
-Cat.prototype.clicker = function () {
-  var hitId = '#' + this.name;
-  var hitCountId = '#' + this.countId;
-
-  // Listen for clicks and increase count
-  $(hitId).click(function (e) {
-    console.log(e.target.id);
-    buttons.count++;
-    $(hitCountId).text(buttons.count);
-  });
-};
-
-// Create Cats
-var buttons = new Cat('Buttons', 'https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426');
-var chewie = new Cat('Chewie', 'https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496');
-
-buttons.catBox();
-buttons.clicker();
-chewie.catBox();
-chewie.clicker();
-
-
-
-
-/////// e.target.id name solution, didn't work because name.count
-// doesnt' mean buttons.count...
-
-  // Listen for clicks and increase count
-  $(hitId).click(function (e) {
-    console.log(e.target.id);
-    var name = e.target.id.slice(0,1).toLowerCase() +
-      e.target.id.slice(1);
-      console.log(name);
-    name.count++;
-    $(hitCountId).text(name.count);
-  });
-*/
