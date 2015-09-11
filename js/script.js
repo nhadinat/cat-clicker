@@ -38,7 +38,7 @@ var cats = [1,2,3,4,5];
   cats[4] = new Cat('Tootsie', 'http://vignette3.wikia.nocookie.net/warriorsfanfic/images/f/f1/BrownCat1.jpg/revision/latest?cb=20140613110216');
 
 // Declare for loop vars
-var cat, elem, header, img, counter;
+var cat, elem, list, header, img, counter;
 
 // Loop over the numbers in cats array
 for (var i = 0; i < cats.length; i++) {
@@ -50,6 +50,8 @@ for (var i = 0; i < cats.length; i++) {
     elem = document.createElement('div');
       elem.id = cat.name;
       elem.className = 'catBox';
+    list = document.createElement('li');
+      list.textContent = cat.name;
     header = document.createElement('h1');
       header.textContent = cat.name;
     counter = document.createElement('p');
@@ -79,8 +81,9 @@ for (var i = 0; i < cats.length; i++) {
     })(cat));
 
     // Append all the cats
-    document.getElementById('container').appendChild(elem);
+    document.getElementById('list').appendChild(list);
+    document.getElementById('litterBox').appendChild(elem);
     document.getElementById(cat.name).appendChild(header);
-    document.getElementById('litterBox').appendChild(counter).classList.add('isHidden');
-    document.getElementById('litterBox').appendChild(img).classList.add('isHidden');
+    document.getElementById(cat.name).appendChild(counter).classList.add('isHidden');
+    document.getElementById(cat.name).appendChild(img).classList.add('isHidden');
 }
