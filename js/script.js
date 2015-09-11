@@ -38,6 +38,9 @@ var cats = [1,2,3,4,5];
   cats[3] = new Cat('Metoo', 'http://purrfectcatbreeds.com/wp-content/uploads/2014/06/snowshoe-cat3.jpg');
   cats[4] = new Cat('Tootsie', 'http://vignette3.wikia.nocookie.net/warriorsfanfic/images/f/f1/BrownCat1.jpg/revision/latest?cb=20140613110216');
 
+// Declare for loop vars
+//
+
 // Let's loop over the numbers in our array
 for (var i = 0; i < cats.length; i++) {
 
@@ -47,12 +50,13 @@ for (var i = 0; i < cats.length; i++) {
     // We're creating a DOM element for the number
     // Build without jQuery first
     var elem = document.createElement('div');
+      elem.id = cat.name;
     var header = document.createElement('h1');
-    header.textContent = cat.name;
+      header.textContent = cat.name;
     var img = document.createElement('img');
-    img.src = cat.src
+      img.src = cat.src;
     var counter = document.createElement('p');
-    counter.textContent = cat.count;
+      counter.textContent = 'points: ';
 
     // ... and when we click, alert the value of `num`
     elem.addEventListener('click', (function(catCopy) {
@@ -64,9 +68,9 @@ for (var i = 0; i < cats.length; i++) {
     })(cat));
 
     document.getElementById('container').appendChild(elem);
-    document.getElementById('container').appendChild(header);
-    document.getElementById('container').appendChild(counter);
-    document.getElementById('container').appendChild(img);
+    document.getElementById(elem.id).appendChild(header);
+    document.getElementById(elem.id).appendChild(counter);
+    document.getElementById(elem.id).appendChild(img);
 }
 
 /*
