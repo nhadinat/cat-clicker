@@ -4,66 +4,63 @@
 // - text showing the number of clicks
 
 //before you make the factory, find the pattern
+/*
+// Cat Class
+var Cat = function (name, url){
+  this.name = name;
+  this.countId = name + 'Counter';
+  this.src = url;
+  count = 0;
+};
+*/
 
+// Create Cat: Buttons
 var buttons = {
-  id: 'buttons',
-  countId: 'buttonsCounter',
   name: 'Buttons',
-  src: 'https://c2.staticflickr.com/2/1126/625069434_db86b67df8_z.jpg'
+  countId: 'buttonsCounter',
+  src: 'https://c2.staticflickr.com/2/1126/625069434_db86b67df8_z.jpg',
+  count: 0
+};
+
+var chewie = {
+  name: 'Chewie',
+  countId: 'chewieCounter',
+  src: 'https://c1.staticflickr.com/3/2298/2290467335_89067c7b51_z.jpg',
+  count: 0
 };
 
 buttons.catBox = function () {
-  var catId = this.id;
-  var catCountId = this.countId;
+  // Gather definitions
   var catName = this.name;
+  var catCountId = this.countId;
   var catSrc = this.src;
 
+  // Compile HTML
   var catContainer =
-    '<div id="' + catId + '">' +
-    '<h1>' + catName + '</h1>' +
-    '<img class="catpic"' +
+    '<div><h1>' + catName + '</h1>' +
+    '<img id="' + catName + '" class="catpic"' +
     'src="' + catSrc + '">' +
     '<p id="' + catCountId + '"></p></div>';
-
+  // Append HTML
   $('#container').append(catContainer);
+};
 
-  return console.log('Meow!');
+// Clicker Function
+buttons.clicker = function () {
+  var hitId = '#' + this.name;
+  var hitCountId = '#' + this.countId;
+
+  // Listen for clicks and increase count
+  $(hitId).click(function (e) {
+    buttons.count++;
+    $(hitCountId).text(buttons.count);
+  });
 };
 
 buttons.catBox();
-
-
-
-/*
-var  buttonsName = 'Buttons';
-var  buttonsCount = 0;
-var  buttonsCounter = $('buttonsCounter');
-
-  //obj.method doesn't work with jquery methods
-
-$('container').prepend(buttons.name);
-
-$('#buttons').click(function(e) {
-  count++;
-  counter.text(count);
-});
-
-
-var buttons;
-  buttons.id = 'buttons';
-  buttons.name = 'Buttons';
-  buttons.img = '<img id="' + buttons.id + '" class="catpic" src="https://c2.staticflickr.com/2/1126/625069434_db86b67df8_z.jpg">';
-  buttons.count = 0;
-  buttons.counter = '<p id="buttonscounter"></p>';
-  buttons.clicker = ;
-*/
-
-/*
-$('#buttons').click(function(e) {
-  count++;
-  $counter.text(count);
-});
-*/
+buttons.clicker();
+//chewie.catBox();
+//chewie.clicker();
 
 /*
  * The PicCounter Class
