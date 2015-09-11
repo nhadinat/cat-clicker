@@ -51,17 +51,19 @@ for (var i = 0; i < cats.length; i++) {
     // Build without jQuery first
     var elem = document.createElement('div');
       elem.id = cat.name;
+      elem.className = 'catbox';
     var header = document.createElement('h1');
       header.textContent = cat.name;
     var img = document.createElement('img');
       img.src = cat.src;
+      img.className = 'catpic';
     var counter = document.createElement('p');
       counter.textContent = 'points: ';
 
     // ... and when we click, alert the value of `num`
     elem.addEventListener('click', (function(catCopy) {
         return function() {
-            console.log(catCopy);
+            console.log(catCopy.name);
             catCopy.count++;
             console.log(catCopy.count);
         };
