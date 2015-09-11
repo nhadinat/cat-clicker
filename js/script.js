@@ -25,6 +25,7 @@
 // Cat Class
 var Cat = function (stringName, stringUrl){
   this.name = stringName;
+  this.imgId = stringName + 'Img';
   this.countId = stringName + 'Counter';
   this.src = stringUrl;
   this.count = 0;
@@ -39,16 +40,15 @@ var cats = [1,2,3,4,5];
   cats[4] = new Cat('Tootsie', 'http://vignette3.wikia.nocookie.net/warriorsfanfic/images/f/f1/BrownCat1.jpg/revision/latest?cb=20140613110216');
 
 // Declare for loop vars
-//
+// var cat, elem, header, img, counter;
 
-// Let's loop over the numbers in our array
+// Loop over the numbers in cats array
 for (var i = 0; i < cats.length; i++) {
 
     // This is the number we're on...
     var cat = cats[i];
 
     // We're creating a DOM element for the number
-    // Build without jQuery first
     var elem = document.createElement('div');
       elem.id = cat.name;
       elem.className = 'catbox';
@@ -56,23 +56,25 @@ for (var i = 0; i < cats.length; i++) {
       header.textContent = cat.name;
     var img = document.createElement('img');
       img.src = cat.src;
+      img.id = cat.imgId;
       img.className = 'catpic';
     var counter = document.createElement('p');
-      counter.textContent = 'points: ';
+      counter.textContent = cat.count;
+      counter.id = cat.countId;
 
-    // ... and when we click, alert the value of `num`
-    elem.addEventListener('click', (function(catCopy) {
+    // ... and when we click, add to count for this cat
+    img.addEventListener('click', (function(catCopy) {
         return function() {
-            console.log(catCopy.name);
             catCopy.count++;
-            console.log(catCopy.count);
+            console.log(catCopy.name + ': ' + catCopy.count);
+            document.getElementById(catCopy.countId).textContent = catCopy.count;
         };
     })(cat));
 
     document.getElementById('container').appendChild(elem);
-    document.getElementById(elem.id).appendChild(header);
-    document.getElementById(elem.id).appendChild(counter);
-    document.getElementById(elem.id).appendChild(img);
+    document.getElementById(cat.name).appendChild(header);
+    document.getElementById(cat.name).appendChild(counter);
+    document.getElementById(cat.name).appendChild(img);
 }
 
 /*
