@@ -1,6 +1,9 @@
 body {
-  background-color: #00aeef;
+  background-color: #0078a6;
   margin: 0;
+}
+h1, p {
+  color: #222;
 }
 ul {
   text-align: center;
@@ -15,6 +18,11 @@ li {
 li:hover {
   color: #00aeef;
   cursor: pointer;
+}
+.container {
+  max-width: 1020px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .selection-list {
   width: 100%;
@@ -35,4 +43,10 @@ li:hover {
   float: left;
   margin: 20px;
   text-align: center;
+
+  /* Rounded Corners */
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
