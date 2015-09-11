@@ -19,7 +19,7 @@ Cat.prototype.catBox = function () {
 
   // Compile HTML
   var catContainer =
-    '<div><h1>' + catName + '</h1>' +
+    '<div class="catbox"><h1>' + catName + '</h1>' +
     '<img id="' + catName + '" class="catpic"' +
     'src="' + catSrc + '">' +
     '<p id="' + catCountId + '"></p></div>';
