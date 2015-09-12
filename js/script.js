@@ -1,3 +1,5 @@
+// Cat Clicker Premium
+//
 // Visuals
 //
 // The application should display
@@ -20,6 +22,9 @@
 
 // Develop cats with their individual clicker counts
 
+///////////////////////////
+//// MODEL ////
+///////////////////////////
 // Cat Class
 var Cat = function (stringName, stringUrl){
   this.name = stringName;
@@ -38,9 +43,11 @@ var cats = [1,2,3,4,5];
   cats[3] = new Cat('Metoo', 'http://purrfectcatbreeds.com/wp-content/uploads/2014/06/snowshoe-cat3.jpg');
   cats[4] = new Cat('Tootsie', 'http://4hdwallpapers.com/wp-content/uploads/2013/04/Funny-Little-Brown-Cat-1024x768.jpg');
 
+///////////////////////////
+//// RENDER ////
+///////////////////////////
 // Declare for loop vars
 var cat, elem, list, header, img, counter;
-
 // Loop over the numbers in cats array
 for (var i = 0; i < cats.length; i++) {
 

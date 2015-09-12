@@ -6,6 +6,9 @@ body {
 h1, p {
   color: #222;
 }
+p {
+  font-size: 20px;
+}
 ul {
   text-align: center;
   padding: 0;
