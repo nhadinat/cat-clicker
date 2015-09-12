@@ -67,7 +67,6 @@ for (var i = 0; i < cats.length; i++) {
     // When we click header, unhide cat
     list.addEventListener('click', (function(catCopy) {
         return function() {
-          console.log(catCopy);
           document.getElementById(catCopy.name).classList.toggle('isHidden');
           document.getElementById(catCopy.headerId).classList.toggle('isHidden');
           document.getElementById(catCopy.countId).classList.toggle('isHidden');

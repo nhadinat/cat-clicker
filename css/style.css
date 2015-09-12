@@ -10,13 +10,13 @@ ul {
 }
 li {
   font-weight: bold;
-  color: #eff0f1;
+  color: #fff;
   padding: 0 20px 0 20px;
   display: inline-block;
   text-decoration: none;
 }
 li:hover {
-  color: #00aeef;
+  color: #eff0f1;
   cursor: pointer;
 }
 .container {
@@ -24,9 +24,9 @@ li:hover {
   margin-right: auto;
   margin-left: auto;
 }
-.selection-list {
-  width: 100%;
-  background-color: #0078a6;
+.logo {
+  color: #fff;
+  text-align: center;
 }
 .isHidden {
   display: none;
