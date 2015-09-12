@@ -36,7 +36,7 @@ var cats = [1,2,3,4,5];
   cats[1] = new Cat('Chewie', 'https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496');
   cats[2] = new Cat('Pumpkin', 'http://s3.amazonaws.com/readers/2012/01/25/320pxredcat8727_1.jpg');
   cats[3] = new Cat('Metoo', 'http://purrfectcatbreeds.com/wp-content/uploads/2014/06/snowshoe-cat3.jpg');
-  cats[4] = new Cat('Tootsie', 'http://animalia-life.com/data_images/havana-brown-cat/havana-brown-cat2.jpg');
+  cats[4] = new Cat('Tootsie', 'http://4hdwallpapers.com/wp-content/uploads/2013/04/Funny-Little-Brown-Cat-1024x768.jpg');
 
 // Declare for loop vars
 var cat, elem, list, header, img, counter;
