@@ -1,4 +1,5 @@
 body {
+  font-family: 'Lora', serif;
   background-color: #0078a6;
   margin: 0;
 }
@@ -7,6 +8,7 @@ h1, p {
 }
 ul {
   text-align: center;
+  padding: 0;
 }
 li {
   font-weight: bold;
@@ -16,7 +18,7 @@ li {
   text-decoration: none;
 }
 li:hover {
-  color: #eff0f1;
+  color: #ddd;
   cursor: pointer;
 }
 .container {
@@ -25,8 +27,8 @@ li:hover {
   margin-left: auto;
 }
 .logo {
-  color: #fff;
   text-align: center;
+  color: #fff;
 }
 .isHidden {
   display: none;
