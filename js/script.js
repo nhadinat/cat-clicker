@@ -24,29 +24,48 @@
 $(function(){
 
   var model = {
-    // Develop cats with their individual clicker counts.
-    // Cat SuperClass
-    var Cat = function (stringName, stringUrl){
-      this.name = stringName;
-      this.headerId = stringName + 'Header';
-      this.countId = stringName + 'Counter';
-      this.count = 0;
-      this.imgId = stringName + 'Img';
-      this.src = stringUrl;
-    };
+    init: function() {
+      // Develop cats with their individual clicker counts.
+      // Cat SuperClass
+      var Cat = function (stringName, stringUrl){
+        this.name = stringName;
+        this.headerId = stringName + 'Header';
+        this.countId = stringName + 'Counter';
+        this.count = 0;
+        this.imgId = stringName + 'Img';
+        this.src = stringUrl;
+      };
 
-    var cats = [];
-      // Create Cats
-      cats[0] = new Cat('Buttons', 'https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426');
-      cats[1] = new Cat('Chewie', 'https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496');
-      cats[2] = new Cat('Pumpkin', 'http://s3.amazonaws.com/readers/2012/01/25/320pxredcat8727_1.jpg');
-      cats[3] = new Cat('Metoo', 'http://purrfectcatbreeds.com/wp-content/uploads/2014/06/snowshoe-cat3.jpg');
-      cats[4] = new Cat('Tootsie', 'http://4hdwallpapers.com/wp-content/uploads/2013/04/Funny-Little-Brown-Cat-1024x768.jpg');
+      var cats = [];
+        // Create Cats
+        cats[0] = new Cat('Buttons', 'https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426');
+        cats[1] = new Cat('Chewie', 'https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496');
+        cats[2] = new Cat('Pumpkin', 'http://s3.amazonaws.com/readers/2012/01/25/320pxredcat8727_1.jpg');
+        cats[3] = new Cat('Metoo', 'http://purrfectcatbreeds.com/wp-content/uploads/2014/06/snowshoe-cat3.jpg');
+        cats[4] = new Cat('Tootsie', 'http://4hdwallpapers.com/wp-content/uploads/2013/04/Funny-Little-Brown-Cat-1024x768.jpg');
+
+      if (!localStorage.cats) {
+        localStorage.cats = cats[];
+      }
+    },
+    getAllCats: function() {
+        //console.log(localStorage); // "[{"content":"cat"},{"content":"bat"},{"content":...
+        return JSON.parse(localStorage.cats);
+      }
   };
 
 
   var octopus = {
-
+    // Gathers all cats in the model
+    getCats: function() {
+      return model.getAllCats();
+    },
+    // Starts the thing
+    init: function() {
+      model.init();
+      viewCat.init();
+      viewList.init();
+    }
   };
 
 
