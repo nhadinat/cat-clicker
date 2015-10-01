@@ -48,17 +48,17 @@ $(function(){
         localStorage.cats = cats[];
       }
     },
-    getAllCats: function() {
-        //console.log(localStorage); // "[{"content":"cat"},{"content":"bat"},{"content":...
-        return JSON.parse(localStorage.cats);
-      }
+    getTheCat: function() {
+      //console.log(localStorage); // "[{"content":"cat"},{"content":"bat"},{"content":...
+      return JSON.parse(localStorage.cats);
+    }
   };
 
 
   var octopus = {
     // Gathers all cats in the model
-    getCats: function() {
-      return model.getAllCats();
+    getCat: function() {
+      return model.getTheCat();
     },
     // Starts the thing
     init: function() {
@@ -75,10 +75,8 @@ $(function(){
       var cat, elem, header, img, counter;
       // Loop over the numbers in cats array
       for (var i = 0; i < cats.length; i++) {
-
         // This is the number we're on...
         cat = cats[i];
-
         // We're creating a DOM element for the number
         elem = document.createElement('div');
           elem.id = cat.name;
@@ -93,25 +91,29 @@ $(function(){
           img.src = cat.src;
           img.id = cat.imgId;
           img.className = 'catPic';
-
         // When we click img, add to count for this cat
         img.addEventListener('click', (function(catCopy) {
           return function() {
             catCopy.count++;
-            console.log(catCopy.name + ': ' + catCopy.count);
             document.getElementById(catCopy.countId).textContent = catCopy.count;
           };
         })(cat));
-
+        // Append all the cats
+        document.getElementById('litterBox').appendChild(elem);
+        document.getElementById(cat.name).appendChild(header);
+        document.getElementById(cat.name).appendChild(counter);
+        document.getElementById(cat.name).appendChild(img);
       }
       viewCat.render();
     },
     render: function() {
-      // Append all the cats
-      document.getElementById('litterBox').appendChild(elem).classList.add('isHidden');
-      document.getElementById(cat.name).appendChild(header).classList.add('isHidden');
-      document.getElementById(cat.name).appendChild(counter).classList.add('isHidden');
-      document.getElementById(cat.name).appendChild(img).classList.add('isHidden');
+      // Clear
+      var htmlStr = '';
+      // Render the selected cat
+      octopus.getCat() // Returns cat[x] TODO HERE
+      htmlStr = '<div id="' + cat.name + '" class="catBox"><h1 id="' + cat.headerId +
+        '">' + cat.name + '</h1><p id="' + cat.countId + '">' + cat.count +
+        '</p><img src="' + cat.src + '" id="' + cat.imgId + '" class="catPic"></div>';
     }
   };
 
@@ -122,14 +124,11 @@ $(function(){
       var cat, list;
       // Loop over the numbers in cats array
       for (var i = 0; i < cats.length; i++) {
-
         // This is the number we're on...
         cat = cats[i];
-
         // We're creating a List element for the number
         list = document.createElement('li');
           list.textContent = cat.name;
-
         // When we click header, unhide cat
         list.addEventListener('click', (function(catCopy) {
           return function() {
@@ -139,12 +138,12 @@ $(function(){
             document.getElementById(catCopy.imgId).classList.toggle('isHidden');
           };
         })(cat));
+        // Append the list of cats
+        document.getElementById('list').appendChild(list);
       }
       viewList.render();
     },
-  render: function() {
-      // Append the list of cats
-      document.getElementById('list').appendChild(list);
+    render: function() {
     }
   };
 
