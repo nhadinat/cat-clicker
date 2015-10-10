@@ -38,33 +38,33 @@ var model = {
 
 var octopus = {
 
-    init: function() {
-        // set our current cat to the first one in the list
-        model.currentCat = model.cats[0];
+  init: function() {
+    // set our current cat to the first one in the list
+    model.currentCat = model.cats[0];
 
-        // tell our views to initialize
-        catListView.init();
-        catView.init();
-    },
+    // tell our views to initialize
+    catListView.init();
+    catView.init();
+  },
 
-    getCurrentCat: function() {
-        return model.currentCat;
-    },
+  getCurrentCat: function() {
+    return model.currentCat;
+  },
 
-    getCats: function() {
-        return model.cats;
-    },
+  getCats: function() {
+    return model.cats;
+  },
 
-    // set the currently-selected cat to the object passed in
-    setCurrentCat: function(cat) {
-        model.currentCat = cat;
-    },
+  // set the currently-selected cat to the object passed in
+  setCurrentCat: function(cat) {
+    model.currentCat = cat;
+  },
 
-    // increments the counter for the currently-selected cat
-    incrementCounter: function() {
-        model.currentCat.clickCount++;
-        catView.render();
-    }
+  // increments the counter for the currently-selected cat
+  incrementCounter: function() {
+    model.currentCat.clickCount++;
+    catView.render();
+  }
 };
 
 
