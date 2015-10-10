@@ -36,13 +36,13 @@ li:hover {
 .isHidden {
   display: none;
 }
-.catPic {
+#cat-img {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
 }
-.catBox {
+#cat {
   background-color: #eff0f1;
   height: 400px;
   width: 300px;
