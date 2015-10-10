@@ -139,6 +139,19 @@ var catListView = {
       this.catListElem.appendChild(elem);
     }
   }
+
+};
+
+var adminView = {
+
+  init: function() {
+
+  },
+
+  render: function() {
+
+  }
+
 };
 
 octopus.init();
