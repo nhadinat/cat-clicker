@@ -1,152 +1,144 @@
-// Cat Clicker Premium
-//
-// Visuals
-//
-// The application should display
-// - a list of at least 5 cats, listed by name
-// - an area to display the selected cat
-//
-// In the cat display area, the following should be displayed
-// - the cat's name
-// - a picture of the cat
-// - text showing the number of clicks
-// - The specifics of the layout do not matter, so style it however
-// you'd like.
-//
-// Interaction
-//
-// When a cat name is clicked in the list, the cat display area
-// should update to show the data for the selected cat.
-// The number of clicks in the cat area should be unique to each
-// cat, and should increment when the cat's picture is clicked.
 
+/* ======= Model ======= */
 
-$(function(){
+var model = {
+  currentCat: null,
 
-  var model = {
-    init: function() {
-      // Develop cats with their individual clicker counts.
-      // Cat SuperClass
-      var Cat = function (stringName, stringUrl){
-        this.name = stringName;
-        this.headerId = stringName + 'Header';
-        this.countId = stringName + 'Counter';
-        this.count = 0;
-        this.imgId = stringName + 'Img';
-        this.src = stringUrl;
-      };
-
-      var cats = [];
-        // Create Cats
-        cats[0] = new Cat('Buttons', 'https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426');
-        cats[1] = new Cat('Chewie', 'https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496');
-        cats[2] = new Cat('Pumpkin', 'http://s3.amazonaws.com/readers/2012/01/25/320pxredcat8727_1.jpg');
-        cats[3] = new Cat('Metoo', 'http://purrfectcatbreeds.com/wp-content/uploads/2014/06/snowshoe-cat3.jpg');
-        cats[4] = new Cat('Tootsie', 'http://4hdwallpapers.com/wp-content/uploads/2013/04/Funny-Little-Brown-Cat-1024x768.jpg');
-
-      if (!localStorage.cats) {
-        localStorage.cats = cats[];
-      }
+  cats: [
+    {
+      clickCount : 0,
+      name : 'Buttons',
+      imgSrc : 'https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426',
     },
-    getTheCat: function() {
-      //console.log(localStorage); // "[{"content":"cat"},{"content":"bat"},{"content":...
-      return JSON.parse(localStorage.cats);
-    }
-  };
-
-
-  var octopus = {
-    // Gathers all cats in the model
-    getCat: function() {
-      return model.getTheCat();
+    {
+      clickCount : 0,
+      name : 'Chewie',
+      imgSrc : 'https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496',
     },
-    // Starts the thing
-    init: function() {
-      model.init();
-      viewCat.init();
-      viewList.init();
-    }
-  };
-
-
-  var viewCat = {
-    init: function() {
-      // Declare for loop vars
-      var cat, elem, header, img, counter;
-      // Loop over the numbers in cats array
-      for (var i = 0; i < cats.length; i++) {
-        // This is the number we're on...
-        cat = cats[i];
-        // We're creating a DOM element for the number
-        elem = document.createElement('div');
-          elem.id = cat.name;
-          elem.className = 'catBox';
-        header = document.createElement('h1');
-          header.id = cat.headerId;
-          header.textContent = cat.name;
-        counter = document.createElement('p');
-          counter.textContent = cat.count;
-          counter.id = cat.countId;
-        img = document.createElement('img');
-          img.src = cat.src;
-          img.id = cat.imgId;
-          img.className = 'catPic';
-        // When we click img, add to count for this cat
-        img.addEventListener('click', (function(catCopy) {
-          return function() {
-            catCopy.count++;
-            document.getElementById(catCopy.countId).textContent = catCopy.count;
-          };
-        })(cat));
-        // Append all the cats
-        document.getElementById('litterBox').appendChild(elem);
-        document.getElementById(cat.name).appendChild(header);
-        document.getElementById(cat.name).appendChild(counter);
-        document.getElementById(cat.name).appendChild(img);
-      }
-      viewCat.render();
+    {
+      clickCount : 0,
+      name : 'Pumpkin',
+      imgSrc : 'http://s3.amazonaws.com/readers/2012/01/25/320pxredcat8727_1.jpg',
     },
-    render: function() {
-      // Clear
-      var htmlStr = '';
-      // Render the selected cat
-      octopus.getCat() // Returns cat[x] TODO HERE
-      htmlStr = '<div id="' + cat.name + '" class="catBox"><h1 id="' + cat.headerId +
-        '">' + cat.name + '</h1><p id="' + cat.countId + '">' + cat.count +
-        '</p><img src="' + cat.src + '" id="' + cat.imgId + '" class="catPic"></div>';
-    }
-  };
-
-
-  var viewList = {
-    init: function() {
-      // Declare for loop vars
-      var cat, list;
-      // Loop over the numbers in cats array
-      for (var i = 0; i < cats.length; i++) {
-        // This is the number we're on...
-        cat = cats[i];
-        // We're creating a List element for the number
-        list = document.createElement('li');
-          list.textContent = cat.name;
-        // When we click header, unhide cat
-        list.addEventListener('click', (function(catCopy) {
-          return function() {
-            document.getElementById(catCopy.name).classList.toggle('isHidden');
-            document.getElementById(catCopy.headerId).classList.toggle('isHidden');
-            document.getElementById(catCopy.countId).classList.toggle('isHidden');
-            document.getElementById(catCopy.imgId).classList.toggle('isHidden');
-          };
-        })(cat));
-        // Append the list of cats
-        document.getElementById('list').appendChild(list);
-      }
-      viewList.render();
+    {
+      clickCount : 0,
+      name : 'Metoo',
+      imgSrc : 'http://purrfectcatbreeds.com/wp-content/uploads/2014/06/snowshoe-cat3.jpg',
     },
-    render: function() {
+    {
+      clickCount : 0,
+      name : 'Tootsie',
+      imgSrc : 'http://4hdwallpapers.com/wp-content/uploads/2013/04/Funny-Little-Brown-Cat-1024x768.jpg',
     }
-  };
+  ]
+};
 
-  octopus.init();
-});
 
+/* ======= Octopus ======= */
+
+var octopus = {
+
+    init: function() {
+        // set our current cat to the first one in the list
+        model.currentCat = model.cats[0];
+
+        // tell our views to initialize
+        catListView.init();
+        catView.init();
+    },
+
+    getCurrentCat: function() {
+        return model.currentCat;
+    },
+
+    getCats: function() {
+        return model.cats;
+    },
+
+    // set the currently-selected cat to the object passed in
+    setCurrentCat: function(cat) {
+        model.currentCat = cat;
+    },
+
+    // increments the counter for the currently-selected cat
+    incrementCounter: function() {
+        model.currentCat.clickCount++;
+        catView.render();
+    }
+};
+
+
+/* ======= View ======= */
+
+var catView = {
+
+  init: function() {
+    // store pointers to our DOM elements for easy access later
+    this.catElem = document.getElementById('cat');
+    this.catNameElem = document.getElementById('cat-name');
+    this.catImageElem = document.getElementById('cat-img');
+    this.countElem = document.getElementById('cat-count');
+
+    // on click, increment the current cat's counter
+    this.catImageElem.addEventListener('click', function(){
+        octopus.incrementCounter();
+    });
+
+    // render this view (update the DOM elements with the right values)
+    this.render();
+  },
+
+  render: function() {
+    // update the DOM elements with values from the current cat
+    var currentCat = octopus.getCurrentCat();
+    this.countElem.textContent = currentCat.clickCount;
+    this.catNameElem.textContent = currentCat.name;
+    this.catImageElem.src = currentCat.imgSrc;
+  }
+
+};
+
+var catListView = {
+
+  init: function() {
+    // store the DOM element for easy access later
+    this.catListElem = document.getElementById('cat-list');
+
+    // render this view (update the DOM elements with the right values)
+    this.render();
+  },
+
+  render: function() {
+    var cat, elem, i;
+    // get the cats we'll be rendering from the octopus
+    var cats = octopus.getCats();
+
+    // empty the cat list
+    this.catListElem.innerHTML = '';
+
+    // loop over the cats
+    for (i = 0; i < cats.length; i++) {
+      // this is the cat we're currently looping over
+      cat = cats[i];
+
+      // make a new cat list item and set its text
+      elem = document.createElement('li');
+      elem.textContent = cat.name;
+
+      // on click, setCurrentCat and render the catView
+      // (this uses our closure-in-a-loop trick to connect the value
+      //  of the cat variable to the click event function)
+      elem.addEventListener('click', (function(catCopy) {
+        return function() {
+          octopus.setCurrentCat(catCopy);
+          catView.render();
+        };
+      })(cat));
+
+      // finally, add the element to the list
+      this.catListElem.appendChild(elem);
+    }
+  }
+};
+
+octopus.init();
