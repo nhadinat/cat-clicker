@@ -54,6 +54,10 @@ li:hover {
   -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
+.edit-section {
+  padding: 20px;
+}
+
 #admin-form {
   color: #fff;
 }
