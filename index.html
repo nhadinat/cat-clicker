@@ -18,6 +18,16 @@
       <div id="cat-count"></div>
       <img id="cat-img" src="" alt="cute cat">
     </div>
+    <div>
+      <input type="submit" value="Edit" onclick="adminView.render()">
+      <div id="admin-form">
+        <label>Name: <input id="admin-cat" type="text" name="name" value=""></label><br>
+        <label>Image URL: <input id="admin-cat-img" type="text" name="imgUrl" value=""></label><br>
+        <label>Clicks: <input id="admin-cat-count" type="text" name="clicks" value=""></label><br>
+        <input type="submit" value="Cancel" onclick="adminView.hide()">
+        <input type="submit" value="Save" onclick="adminView.save()">
+      </div>
+    </div>
   </div>
 
   <script src="js/script.js"></script>

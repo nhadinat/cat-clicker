@@ -33,9 +33,6 @@ li:hover {
   text-align: center;
   color: #fff;
 }
-.isHidden {
-  display: none;
-}
 #cat-img {
   width: 100%;
   margin-left: auto;
@@ -55,4 +52,8 @@ li:hover {
   -webkit-border-radius: 10px;
   border-radius: 10px; /* future proofing */
   -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+#admin-form {
+  color: #fff;
 }
