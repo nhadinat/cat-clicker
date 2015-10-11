@@ -45,6 +45,7 @@ var octopus = {
     // tell our views to initialize
     catListView.init();
     catView.init();
+    adminView.init();
   },
 
   getCurrentCat: function() {
@@ -81,7 +82,7 @@ var catView = {
 
     // on click, increment the current cat's counter
     this.catImageElem.addEventListener('click', function(){
-        octopus.incrementCounter();
+      octopus.incrementCounter();
     });
 
     // render this view (update the DOM elements with the right values)
@@ -145,11 +146,27 @@ var catListView = {
 var adminView = {
 
   init: function() {
+    // store pointers to our DOM elements for easy access later
+    this.cat = document.getElementById('admin-cat');
+    this.catImg = document.getElementById('admin-cat-img');
+    this.catCount = document.getElementById('admin-cat-count');
+    this.adminForm = document.getElementById('admin-form');
 
+    adminView.hide();
+  },
+  hide: function() {
+    // Hide adminForm
+    this.adminForm.style.visibility = "hidden";
   },
 
   render: function() {
-
+    // Unhide adminForm
+    this.adminForm.style.visibility = "visible";
+    // update the DOM elements with values from the current cat
+    var currentCat = octopus.getCurrentCat();
+    this.cat.value = currentCat.name;
+    this.catImg.value = currentCat.imgSrc;
+    this.catCount.value = currentCat.clickCount;
   }
 
 };

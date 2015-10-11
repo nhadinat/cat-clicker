@@ -18,16 +18,16 @@
       <div id="cat-count"></div>
       <img id="cat-img" src="" alt="cute cat">
     </div>
-      <form action="adminView.init()">
-        <input type="submit" value="Admin">
-      </form>
-      <form action="">
-        Name: <input type="text" name="name" value="currentCat"><br>
-        Image URL: <input type="text" name="imgUrl" value="linkURL"><br>
-        Clicks: <input type="text" name="clicks" value="clickCount"><br>
-        <input type="submit" value="Cancel">
-        <input type="submit" value="Save">
-      </form>
+      <input type="submit" value="Admin" onclick="adminView.render()">
+      <div id="admin-form">
+        <form action="">
+          <label>Name: <input id="admin-cat" type="text" name="name" value=""></label><br>
+          <label>Image URL: <input id="admin-cat-img" type="text" name="imgUrl" value=""></label><br>
+          <label>Clicks: <input id="admin-cat-count" type="text" name="clicks" value=""></label><br>
+          <input type="submit" value="Cancel">
+          <input type="submit" value="Save">
+        </form>
+      </div>
     <div>
   </div>
 
