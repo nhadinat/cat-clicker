@@ -15,12 +15,12 @@
     meWOW Edition</h1>
     <ul data-bind=""></ul>
     <div class="cat">
-      <h2 data-bind="text: name"></h2>
-      <p data-bind="text: clickCount"></p>
-      <img src="" alt="cute cat" class="cat-img" data-bind="click: incrementCounter, attr: {src: imgSrc}">
+      <h2 data-bind="text: currentCat().titleName"></h2>
+      <p data-bind="text: currentCat().clickCount"></p>
+      <img src="" alt="cute cat" class="cat-img" data-bind="click: incrementCounter, attr: {src: currentCat().imgSrc}">
       <div class="nicknames">
         <h3>Nicknames:</h3>
-        <ul data-bind="foreach: nicknames">
+        <ul data-bind="foreach: currentCat().nicknames">
           <li data-bind="text: $data"></li>
         </ul>
       </div>
