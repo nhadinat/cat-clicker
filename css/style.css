@@ -24,6 +24,9 @@ li:hover {
   color: #ddd;
   cursor: pointer;
 }
+.nicknames li {
+  color: #222;
+}
 .container {
   max-width: 1020px;
   margin-right: auto;
@@ -33,18 +36,17 @@ li:hover {
   text-align: center;
   color: #fff;
 }
-#cat-img {
+.cat-img {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
 }
-#cat {
+.cat {
   background-color: #eff0f1;
   height: 400px;
   width: 300px;
-  float: left;
-  margin: 20px;
+  margin: 20px auto;
   text-align: center;
 
   /* Rounded Corners */
