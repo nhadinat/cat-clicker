@@ -27,7 +27,7 @@ var Cat = function () {
     } else if (clicks < 400) {
       title = 'GigaTron';
     } else {
-      title = 'TerraNigma';
+      title = 'Mr. Worldwide';
     }
     return title;
   });
