@@ -15,13 +15,19 @@ var Cat = function () {
     } else if (clicks < 100) {
       title = 'Lord';
     } else if (clicks < 150) {
-      title = 'King';
+      title = 'Prince';
     } else if (clicks < 200) {
-      title = 'Emperor';
+      title = 'King';
     } else if (clicks < 250) {
+      title = 'Emperor';
+    } else if (clicks < 300) {
       title = 'Ultra';
-    } else {
+    } else if (clicks < 350) {
       title = 'MegaMecha';
+    } else if (clicks < 400) {
+      title = 'GigaTron';
+    } else {
+      title = 'TerraNigma';
     }
     return title;
   });
