@@ -26,6 +26,7 @@ li:hover {
 }
 .nicknames li {
   color: #222;
+  margin: 15px 0 15px 0;
 }
 .container {
   max-width: 1020px;
@@ -44,7 +45,6 @@ li:hover {
 }
 .cat {
   background-color: #eff0f1;
-  height: 400px;
   width: 300px;
   margin: 20px auto;
   text-align: center;
